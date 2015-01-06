@@ -5,6 +5,8 @@ var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
 app.engine ('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+var fortune = require('./lib/fortune.js');
+/*
 var fortunes = [
 "Conquer your fears or they will conquer you.",
 "Rivers need springs.",
@@ -13,7 +15,7 @@ var fortunes = [
 "Whenever possible, keep it simple.",
 ];
 
-
+*/
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname+ '/public'));
@@ -32,10 +34,12 @@ app.get('/', function(req, res){
 
    
  app.get('/about', function(req, res){
-		 var randomFortune =
-		fortunes[Math.floor(Math.random() * fortunes.length)];
-		res.render('about', { fortune: randomFortune });
+		// var randomFortune =
+		//fortunes[Math.floor(Math.random() * fortunes.length)];
+		//res.render('about', { fortune: randomFortune });
+		res.render('about', { fortune : fortune.getFortune()});
     // res.render('about');  
+	
    });
      
 	 
