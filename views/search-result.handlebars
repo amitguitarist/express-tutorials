@@ -1,0 +1,21 @@
+<h1> {{title}} </h1>
+<p>Enter the name to search for.<br>
+ <form action='/search-result' method='get'>
+  <label> Name </label>
+  <input type='text' name='name'>
+  <input type='hidden' name='source' value='web'>
+  <input type='checkbox' name='vehicle' value='Bike'> I have a bike<br>
+  <input type='checkbox' name='vehicle' value='Car' > I have a car<br>
+  <input type='submit' value='Search'>
+  
+  
+  
+ </form>
+</p>
+ 
+ {{#if name}}
+ <h3> You entered Name {{name}} </h3>
+ <h3> You entered Source {{source}} </h3>
+ {{/if}}
+ 
+
